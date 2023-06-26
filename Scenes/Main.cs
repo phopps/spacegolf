@@ -13,7 +13,7 @@ public class Main : Node
 
     public override void _UnhandledInput(InputEvent @event)
     {
-        if ((@event is InputEventKey) && @event.IsActionPressed("ui_cancel"))
+        if ((@event is InputEventKey) && @event.IsActionPressed("Quit"))
         {
             GD.Print("Quit key pressed. Quitting game.");
             QuitGame();
