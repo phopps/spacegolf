@@ -27,3 +27,9 @@ mono_crash.*.json
 
 # Built Visual Studio Code Extensions
 *.vsix
+
+# Exported project files (HTML5, desktop, mobile)
+_Export/
+
+# Debug folder
+#_Debug/
