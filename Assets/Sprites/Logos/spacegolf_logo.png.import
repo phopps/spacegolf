@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SpacegolfBanner.png-c550a67b594b4bb1982134ce7b4741b0.stex"
+path="res://.import/spacegolf_logo.png-643a819ae6e8faa5fa21d2d35ba34419.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Logos/SpacegolfBanner.png"
-dest_files=[ "res://.import/SpacegolfBanner.png-c550a67b594b4bb1982134ce7b4741b0.stex" ]
+source_file="res://Assets/Sprites/Logos/spacegolf_logo.png"
+dest_files=[ "res://.import/spacegolf_logo.png-643a819ae6e8faa5fa21d2d35ba34419.stex" ]
 
 [params]
 
@@ -21,8 +21,8 @@ compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
 flags/filter=true
-flags/mipmaps=false
-flags/anisotropic=false
+flags/mipmaps=true
+flags/anisotropic=true
 flags/srgb=2
 process/fix_alpha_border=true
 process/premult_alpha=false

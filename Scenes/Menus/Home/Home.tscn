@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/Menus/Home/Home.cs" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/Planets/PlanetPurple.png" type="Texture" id=2]
-[ext_resource path="res://Assets/Sprites/SpacegolfBanner.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Sprites/Logos/spacegolf_logo.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Themes/Default.tres" type="Theme" id=4]
 
 [node name="Home" type="CanvasLayer"]
@@ -26,13 +26,11 @@ __meta__ = {
 [node name="Planet" type="Sprite" parent="Background"]
 position = Vector2( 512, 300 )
 scale = Vector2( 0.7, 0.7 )
-z_index = -10
 texture = ExtResource( 2 )
 
 [node name="Title" type="Sprite" parent="Background"]
 position = Vector2( 512, 200 )
 scale = Vector2( 1.13774, 1.0825 )
-z_index = 10
 texture = ExtResource( 3 )
 
 [node name="Menu" type="VBoxContainer" parent="."]
@@ -48,7 +46,7 @@ theme = ExtResource( 4 )
 
 [node name="Play" type="Button" parent="Menu"]
 margin_right = 208.0
-margin_bottom = 56.0
+margin_bottom = 62.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbour_bottom = NodePath("../Settings")
@@ -57,9 +55,9 @@ theme = ExtResource( 4 )
 text = "Play"
 
 [node name="Settings" type="Button" parent="Menu"]
-margin_top = 66.0
+margin_top = 72.0
 margin_right = 208.0
-margin_bottom = 122.0
+margin_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbour_top = NodePath("../Play")
@@ -71,9 +69,9 @@ disabled = true
 text = "Settings"
 
 [node name="Credits" type="Button" parent="Menu"]
-margin_top = 132.0
+margin_top = 144.0
 margin_right = 208.0
-margin_bottom = 188.0
+margin_bottom = 206.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbour_top = NodePath("../Settings")
@@ -85,9 +83,9 @@ disabled = true
 text = "Credits"
 
 [node name="Quit" type="Button" parent="Menu"]
-margin_top = 198.0
+margin_top = 216.0
 margin_right = 208.0
-margin_bottom = 254.0
+margin_bottom = 278.0
 grow_horizontal = 2
 grow_vertical = 2
 focus_neighbour_top = NodePath("../Credits")
