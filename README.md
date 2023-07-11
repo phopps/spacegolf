@@ -1,4 +1,4 @@
-# Spacegolf
+![Spacegolf Banner](Assets/Sprites/Logos/spacegolf_banner.png)
 
 *Fast-paced 2D metroidvania golf platformer.*
 
