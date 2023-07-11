@@ -15,5 +15,6 @@ public class Home : CanvasLayer
     public void _on_Quit_pressed()
     {
         GD.Print("Quit button pressed on Home. Quitting game.");
+        Main.GetInstance().QuitGame();
     }
 }

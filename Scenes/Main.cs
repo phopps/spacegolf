@@ -3,9 +3,26 @@ using Godot;
 public class Main : Node
 {
     private Audio audio;
+    private static Main instance; // Singleton pattern
+
+    public static Main GetInstance()
+    {
+        return instance;
+    }
 
     public override void _Ready()
     {
+        // Check for instance of Main singleton
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            GD.Print("Error: Duplicate 'Main' instance.");
+            QueueFree();
+        }
+
         audio = GetNode<Audio>("Audio");
         audio.PlayBGM();
         GD.Print("Main.cs is ready.");
