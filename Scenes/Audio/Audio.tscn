@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Audio/SFX/click.wav" type="AudioStream" id=1]
+[ext_resource path="res://Assets/Audio/BGM/enchanted_tiki_86.ogg" type="AudioStream" id=2]
+[ext_resource path="res://Assets/Audio/SFX/minimize.wav" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/Audio/Audio.cs" type="Script" id=4]
+
+[node name="Audio" type="Node"]
+script = ExtResource( 4 )
+
+[node name="AudioBGM" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+volume_db = -10.0
+
+[node name="AudioSelect" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 1 )
+
+[node name="AudioQuit" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )

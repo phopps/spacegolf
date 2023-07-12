@@ -3,6 +3,9 @@ using Godot;
 public class Main : Node
 {
     private Audio audio;
+    // private CanvasLayer sceneNext;
+    private CanvasLayer sceneCurrent;
+    private CanvasLayer scenePrevious;
     private static Main instance; // Singleton pattern
 
     public static Main GetInstance()
@@ -16,6 +19,7 @@ public class Main : Node
         if (instance == null)
         {
             instance = this;
+            sceneCurrent = GetNode<CanvasLayer>("Home");
         }
         else
         {
@@ -24,7 +28,7 @@ public class Main : Node
         }
 
         audio = GetNode<Audio>("Audio");
-        audio.PlayBGM();
+        audio.PlayAudioBGM();
         GD.Print("Main.cs is ready.");
     }
 
@@ -38,14 +42,48 @@ public class Main : Node
         if ((@event is InputEventKey) && @event.IsActionPressed("Select"))
         {
             GD.Print("Select key pressed.");
-            audio.PlaySelect();
+            audio.PlayAudioSelect();
         }
     }
 
-    public async void QuitGame()
+    public void QuitGame()
     {
-        audio.PlayQuit();
-        await ToSignal(audio.GetNode<AudioStreamPlayer>("Quit"), "finished");
+        audio.PlayAudioQuit();
+        audio.GetNode<AudioStreamPlayer>("AudioQuit").Connect("finished", this, "CloseGame");
+    }
+
+    public void CloseGame()
+    {
         GetTree().Quit();
     }
+
+    public void PlayGame()
+    {
+        // Load highest unlocked level by default
+        // Level contains map terrain, gates, portal, player
+
+    }
+
+    public void LoadLevelsMenu()
+    {
+        scenePrevious = sceneCurrent;
+        sceneCurrent = GetNode<CanvasLayer>("Levels");
+        scenePrevious.QueueFree();
+        GetInstance().AddChild(sceneCurrent);
+    }
 }
+
+// CHANGING SCENES
+// public PackedScene simultaneousScene;
+
+// public MyClass()
+// {
+//     simultaneousScene = (PackedScene)ResourceLoader.Load("res://levels/level2.tscn").instance();
+// }
+
+// public void _AddASceneManually()
+// {
+//     // This is like autoloading the scene, only
+//     // it happens after already loading the main scene.
+//     GetTree().GetRoot().AddChild(simultaneousScene);
+// }

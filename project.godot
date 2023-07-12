@@ -17,9 +17,9 @@ Shoot your player through gates to get to the finish portal on each level. Setup
 
 Created by phopps and thaewyn."
 run/main_scene="res://Scenes/Main.tscn"
-boot_splash/image="res://Assets/Sprites/Screenshots/Splash.PNG"
+boot_splash/image="res://Assets/Sprites/Screenshots/splash.png"
 boot_splash/bg_color=Color( 0.176471, 0.176471, 0.176471, 1 )
-config/icon="res://Assets/Sprites/Logos/spacegolf_logo.png"
+config/icon="res://Assets/Sprites/Text/spacegolf_logo.png"
 
 [display]
 

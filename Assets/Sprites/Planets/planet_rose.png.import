@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/home.png-03419866e7a6a6276032dedcf73516ff.stex"
+path="res://.import/planet_rose.png-84a4ae6279242c8bc260265ba6a80250.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Screenshots/home.png"
-dest_files=[ "res://.import/home.png-03419866e7a6a6276032dedcf73516ff.stex" ]
+source_file="res://Assets/Sprites/Planets/planet_rose.png"
+dest_files=[ "res://.import/planet_rose.png-84a4ae6279242c8bc260265ba6a80250.stex" ]
 
 [params]
 
