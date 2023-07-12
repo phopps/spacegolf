@@ -2,11 +2,13 @@ using Godot;
 
 public class Main : Node
 {
-    private Audio audio;
-    // private CanvasLayer sceneNext;
-    private CanvasLayer sceneCurrent;
-    private CanvasLayer scenePrevious;
+    public Node sceneHome;
+    public Node sceneLevels;
+    public Node scenePrevious;
+    public Node sceneCurrent;
+    public Node sceneNext;
     private static Main instance; // Singleton pattern
+    private Audio audio;
 
     public static Main GetInstance()
     {
@@ -15,15 +17,21 @@ public class Main : Node
 
     public override void _Ready()
     {
+        sceneHome = ResourceLoader.Load<PackedScene>("res://Scenes/Menus/Home/Home.tscn").Instance();
+        sceneLevels = ResourceLoader.Load<PackedScene>("res://Scenes/Menus/Levels/Levels.tscn").Instance();
+        sceneCurrent = sceneHome;
+        scenePrevious = null;
+        sceneNext = null;
+
         // Check for instance of Main singleton
         if (instance == null)
         {
             instance = this;
-            sceneCurrent = GetNode<CanvasLayer>("Home");
         }
         else
         {
             GD.Print("Error: Duplicate 'Main' instance.");
+            sceneCurrent = null;
             QueueFree();
         }
 
@@ -66,24 +74,11 @@ public class Main : Node
 
     public void LoadLevelsMenu()
     {
+        sceneNext = sceneLevels;
         scenePrevious = sceneCurrent;
-        sceneCurrent = GetNode<CanvasLayer>("Levels");
+        sceneCurrent = sceneNext;
         scenePrevious.QueueFree();
-        GetInstance().AddChild(sceneCurrent);
+        instance.AddChild(sceneCurrent);
+        sceneNext = null;
     }
 }
-
-// CHANGING SCENES
-// public PackedScene simultaneousScene;
-
-// public MyClass()
-// {
-//     simultaneousScene = (PackedScene)ResourceLoader.Load("res://levels/level2.tscn").instance();
-// }
-
-// public void _AddASceneManually()
-// {
-//     // This is like autoloading the scene, only
-//     // it happens after already loading the main scene.
-//     GetTree().GetRoot().AddChild(simultaneousScene);
-// }
