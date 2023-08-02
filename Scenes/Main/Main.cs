@@ -19,9 +19,9 @@ public class Main : Node
     {
         sceneHome = ResourceLoader.Load<PackedScene>("res://Scenes/Menus/Home/Home.tscn").Instance();
         sceneLevels = ResourceLoader.Load<PackedScene>("res://Scenes/Menus/Levels/Levels.tscn").Instance();
-        sceneCurrent = sceneHome;
-        scenePrevious = null;
-        sceneNext = null;
+        // sceneCurrent = sceneHome;
+        // scenePrevious = null;
+        // sceneNext = null;
 
         // Check for instance of Main singleton
         if (instance == null)
@@ -31,7 +31,7 @@ public class Main : Node
         else
         {
             GD.Print("Error: Duplicate 'Main' instance.");
-            sceneCurrent = null;
+            // sceneCurrent = null;
             QueueFree();
         }
 
@@ -74,11 +74,27 @@ public class Main : Node
 
     public void LoadLevelsMenu()
     {
-        sceneNext = sceneLevels;
-        scenePrevious = sceneCurrent;
-        sceneCurrent = sceneNext;
-        scenePrevious.QueueFree();
-        instance.AddChild(sceneCurrent);
-        sceneNext = null;
+        // sceneNext = sceneLevels;
+        // scenePrevious = sceneCurrent;
+        // sceneCurrent = sceneNext;
+        // GetTree().QueueDelete(scenePrevious);
+        // instance.AddChild(sceneCurrent);
+        // GetNode<Node>("UI").AddChild(sceneLevels);
+        // sceneNext = null;
+
+
+        // Make "Levels" scene visible
+        GetNode<CanvasLayer>("UI/LevelMenu").Visible = true;
+        GetNode<CanvasLayer>("UI/Home").Visible = false;
+    }
+
+    public void LoadLevel(int levelNumber)
+    {
+        if (levelNumber == 1)
+        {
+            GetNode<Node>("Level").AddChild(ResourceLoader.Load<PackedScene>("res://Level1.tscn").Instance());
+        }
+        GetNode<CanvasLayer>("UI/LevelMenu").Visible = false;
+        GetNode<CanvasLayer>("UI/Home").Visible = false;
     }
 }

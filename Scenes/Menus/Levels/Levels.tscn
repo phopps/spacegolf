@@ -82,8 +82,6 @@ margin_right = 374.0
 margin_bottom = 298.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
 theme = ExtResource( 1 )
 columns = 3
 __meta__ = {
@@ -231,4 +229,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="LevelsMargin/LevelsVbox/LevelsHomeButton" to="." method="_on_LevelsHomeButton_pressed"]
+[connection signal="pressed" from="LevelsMargin/LevelsVbox/LevelsGrid/LevelsButton01" to="." method="_on_LevelsButton01_pressed"]
 [connection signal="pressed" from="LevelsMargin/LevelsVbox/LevelsQuitButton" to="." method="_on_LevelsQuitButton_pressed"]

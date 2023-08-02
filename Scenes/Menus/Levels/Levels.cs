@@ -17,4 +17,9 @@ public class Levels : CanvasLayer
         GD.Print("Quit button pressed on Levels. Quitting game.");
         Main.GetInstance().QuitGame();
     }
+
+    public void _on_LevelsButton01_pressed()
+    {
+        Main.GetInstance().LoadLevel(1);
+    }
 }
