@@ -1,3 +1,233 @@
-[gd_scene format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/Themes/default.tres" type="Theme" id=1]
+[ext_resource path="res://Assets/Sprites/Text/spacegolf_levels_title.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Planets/planet_rose.png" type="Texture" id=3]
+[ext_resource path="res://Scenes/Menus/Levels/Levels.cs" type="Script" id=4]
 
 [node name="Levels" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="LevelsBackground" type="AspectRatioContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="LevelsPlanet" type="Sprite" parent="LevelsBackground"]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelsTitle" type="Sprite" parent="LevelsBackground"]
+position = Vector2( 512, 95 )
+scale = Vector2( 1.13774, 1.0825 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelsMargin" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.0
+margin_top = -102.0
+margin_right = 187.0
+margin_bottom = 268.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelsVbox" type="VBoxContainer" parent="LevelsMargin"]
+margin_right = 374.0
+margin_bottom = 370.0
+focus_mode = 2
+theme = ExtResource( 1 )
+alignment = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelsHomeButton" type="Button" parent="LevelsMargin/LevelsVbox"]
+margin_right = 374.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_bottom = NodePath("../LevelsGrid/LevelsButton02")
+focus_next = NodePath("../LevelsGrid/LevelsButton02")
+theme = ExtResource( 1 )
+text = "Home"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelsGrid" type="GridContainer" parent="LevelsMargin/LevelsVbox"]
+margin_top = 72.0
+margin_right = 374.0
+margin_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 1 )
+columns = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="LevelsButton01" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_right = 111.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_bottom = NodePath("../LevelsButton02")
+focus_next = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+text = "Level 1"
+
+[node name="LevelsButton02" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_left = 131.0
+margin_right = 243.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton01")
+focus_neighbour_bottom = NodePath("../LevelsButton03")
+focus_next = NodePath("../LevelsButton03")
+focus_previous = NodePath("../LevelsButton01")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 2"
+
+[node name="LevelsButton03" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_left = 263.0
+margin_right = 374.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 3"
+
+[node name="LevelsButton04" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_top = 82.0
+margin_right = 111.0
+margin_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 4"
+
+[node name="LevelsButton05" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_left = 131.0
+margin_top = 82.0
+margin_right = 243.0
+margin_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 5"
+
+[node name="LevelsButton06" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_left = 263.0
+margin_top = 82.0
+margin_right = 374.0
+margin_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 6"
+
+[node name="LevelsButton07" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_top = 164.0
+margin_right = 111.0
+margin_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 7"
+
+[node name="LevelsButton08" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_left = 131.0
+margin_top = 164.0
+margin_right = 243.0
+margin_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 8"
+
+[node name="LevelsButton09" type="Button" parent="LevelsMargin/LevelsVbox/LevelsGrid"]
+margin_left = 263.0
+margin_top = 164.0
+margin_right = 374.0
+margin_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsButton02")
+focus_neighbour_bottom = NodePath("../../LevelsQuitButton")
+focus_next = NodePath("../../LevelsQuitButton")
+focus_previous = NodePath("../LevelsButton02")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 9"
+
+[node name="LevelsQuitButton" type="Button" parent="LevelsMargin/LevelsVbox"]
+margin_top = 308.0
+margin_right = 374.0
+margin_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../LevelsGrid/LevelsButton03")
+focus_previous = NodePath("../LevelsGrid/LevelsButton03")
+theme = ExtResource( 1 )
+text = "Quit"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="LevelsMargin/LevelsVbox/LevelsHomeButton" to="." method="_on_LevelsHomeButton_pressed"]
+[connection signal="pressed" from="LevelsMargin/LevelsVbox/LevelsGrid/LevelsButton01" to="." method="_on_LevelsButton01_pressed"]
+[connection signal="pressed" from="LevelsMargin/LevelsVbox/LevelsQuitButton" to="." method="_on_LevelsQuitButton_pressed"]

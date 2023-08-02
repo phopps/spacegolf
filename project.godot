@@ -16,10 +16,10 @@ config/description="Spacegolf is a fast-paced 2D metroidvania golf platformer.
 Shoot your player through gates to get to the finish portal on each level. Setup your shots by clicking and dragging your mouse, then release it to shoot your player. Pass through all gates to open the portal, then get there before it closes!
 
 Created by phopps and thaewyn."
-run/main_scene="res://Scenes/Main.tscn"
-boot_splash/image="res://Assets/Sprites/Screenshots/Splash.PNG"
+run/main_scene="res://Scenes/Main/Main.tscn"
+boot_splash/image="res://Assets/Sprites/Screenshots/splash.png"
 boot_splash/bg_color=Color( 0.176471, 0.176471, 0.176471, 1 )
-config/icon="res://Assets/Sprites/Logos/spacegolf_logo.png"
+config/icon="res://Assets/Sprites/Text/spacegolf_logo.png"
 
 [display]
 

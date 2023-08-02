@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Main/Main.cs" type="Script" id=1]
+[ext_resource path="res://Scenes/Audio/Audio.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Menus/Home/Home.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Menus/Levels/Levels.tscn" type="PackedScene" id=4]
+
+[node name="Main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Audio" parent="." instance=ExtResource( 2 )]
+
+[node name="Level" type="Node" parent="."]
+
+[node name="UI" type="Node" parent="."]
+
+[node name="Home" parent="UI" instance=ExtResource( 3 )]
+
+[node name="LevelMenu" parent="UI" instance=ExtResource( 4 )]
+visible = false
