@@ -1,0 +1,233 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://default.tres" type="Theme" id=1]
+[ext_resource path="res://assets/spacegolf_levels_title.png" type="Texture" id=2]
+[ext_resource path="res://assets/planet_rose.png" type="Texture" id=3]
+[ext_resource path="res://ui/levels_menu.cs" type="Script" id=4]
+
+[node name="levels_menu" type="CanvasLayer"]
+script = ExtResource( 4 )
+
+[node name="image_container" type="AspectRatioContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="planet_sprite" type="Sprite" parent="image_container"]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title_sprite" type="Sprite" parent="image_container"]
+position = Vector2( 512, 95 )
+scale = Vector2( 1.13774, 1.0825 )
+texture = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="button_container" type="MarginContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -187.0
+margin_top = -102.0
+margin_right = 187.0
+margin_bottom = 268.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="button_vbox" type="VBoxContainer" parent="button_container"]
+margin_right = 374.0
+margin_bottom = 370.0
+focus_mode = 2
+theme = ExtResource( 1 )
+alignment = 1
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="home_button" type="Button" parent="button_container/button_vbox"]
+margin_right = 374.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_bottom = NodePath("../button_grid/level_02_button")
+focus_next = NodePath("../button_grid/level_02_button")
+theme = ExtResource( 1 )
+text = "Home"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="button_grid" type="GridContainer" parent="button_container/button_vbox"]
+margin_top = 72.0
+margin_right = 374.0
+margin_bottom = 298.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource( 1 )
+columns = 3
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="level_01_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_right = 111.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_bottom = NodePath("../level_02_button")
+focus_next = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+text = "Level 1"
+
+[node name="level_02_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_left = 131.0
+margin_right = 243.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_01_button")
+focus_neighbour_bottom = NodePath("../level_03_button")
+focus_next = NodePath("../level_03_button")
+focus_previous = NodePath("../level_01_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 2"
+
+[node name="level_03_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_left = 263.0
+margin_right = 374.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 3"
+
+[node name="level_04_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_top = 82.0
+margin_right = 111.0
+margin_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 4"
+
+[node name="level_05_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_left = 131.0
+margin_top = 82.0
+margin_right = 243.0
+margin_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 5"
+
+[node name="level_06_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_left = 263.0
+margin_top = 82.0
+margin_right = 374.0
+margin_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 6"
+
+[node name="level_07_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_top = 164.0
+margin_right = 111.0
+margin_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 7"
+
+[node name="level_08_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_left = 131.0
+margin_top = 164.0
+margin_right = 243.0
+margin_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 8"
+
+[node name="level_09_button" type="Button" parent="button_container/button_vbox/button_grid"]
+margin_left = 263.0
+margin_top = 164.0
+margin_right = 374.0
+margin_bottom = 226.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../level_02_button")
+focus_neighbour_bottom = NodePath("../../quit_button")
+focus_next = NodePath("../../quit_button")
+focus_previous = NodePath("../level_02_button")
+theme = ExtResource( 1 )
+disabled = true
+text = "Level 9"
+
+[node name="quit_button" type="Button" parent="button_container/button_vbox"]
+margin_top = 308.0
+margin_right = 374.0
+margin_bottom = 370.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../button_grid/level_03_button")
+focus_previous = NodePath("../button_grid/level_03_button")
+theme = ExtResource( 1 )
+text = "Quit"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[connection signal="pressed" from="button_container/button_vbox/home_button" to="." method="_on_home_button_pressed"]
+[connection signal="pressed" from="button_container/button_vbox/button_grid/level_01_button" to="." method="_on_level_01_button_pressed"]
+[connection signal="pressed" from="button_container/button_vbox/quit_button" to="." method="_on_quit_button_pressed"]

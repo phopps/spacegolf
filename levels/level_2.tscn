@@ -1,0 +1,10 @@
+[gd_scene format=2]
+
+[node name="level_02" type="Node"]
+
+[node name="level_label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -75.0
+margin_bottom = 25.0
+text = "Level 2"

@@ -1,0 +1,122 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://ui/home_menu.cs" type="Script" id=1]
+[ext_resource path="res://default.tres" type="Theme" id=2]
+[ext_resource path="res://assets/planet_purple.png" type="Texture" id=3]
+[ext_resource path="res://assets/spacegolf_logo_subtitled.png" type="Texture" id=4]
+
+[node name="home_menu" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="image_container" type="AspectRatioContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+grow_horizontal = 2
+grow_vertical = 2
+__meta__ = {
+"_edit_lock_": true,
+"_edit_use_anchors_": true
+}
+
+[node name="planet_sprite" type="Sprite" parent="image_container"]
+position = Vector2( 512, 300 )
+scale = Vector2( 0.7, 0.7 )
+texture = ExtResource( 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="title_sprite" type="Sprite" parent="image_container"]
+position = Vector2( 512, 173 )
+scale = Vector2( 1.13774, 1.0825 )
+texture = ExtResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="button_container" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -104.0
+margin_top = -70.0
+margin_right = 104.0
+margin_bottom = 300.0
+focus_mode = 2
+theme = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="play_button" type="Button" parent="button_container"]
+margin_right = 208.0
+margin_bottom = 62.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_bottom = NodePath("../levels_button")
+focus_next = NodePath("../levels_button")
+theme = ExtResource( 2 )
+text = "Play"
+
+[node name="levels_button" type="Button" parent="button_container"]
+margin_top = 72.0
+margin_right = 208.0
+margin_bottom = 134.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../play_button")
+focus_neighbour_bottom = NodePath("../settings_button")
+focus_next = NodePath("../settings_button")
+focus_previous = NodePath("../play_button")
+theme = ExtResource( 2 )
+text = "Levels"
+
+[node name="settings_button" type="Button" parent="button_container"]
+margin_top = 144.0
+margin_right = 208.0
+margin_bottom = 206.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../levels_button")
+focus_neighbour_bottom = NodePath("../credits_button")
+focus_next = NodePath("../credits_button")
+focus_previous = NodePath("../levels_button")
+theme = ExtResource( 2 )
+text = "Settings"
+
+[node name="credits_button" type="Button" parent="button_container"]
+margin_top = 216.0
+margin_right = 208.0
+margin_bottom = 278.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../settings_button")
+focus_neighbour_bottom = NodePath("../quit_button")
+focus_next = NodePath("../quit_button")
+focus_previous = NodePath("../settings_button")
+theme = ExtResource( 2 )
+text = "Credits"
+
+[node name="quit_button" type="Button" parent="button_container"]
+margin_top = 288.0
+margin_right = 208.0
+margin_bottom = 350.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_neighbour_top = NodePath("../credits_button")
+focus_previous = NodePath("../credits_button")
+theme = ExtResource( 2 )
+text = "Quit"
+
+[connection signal="pressed" from="button_container/play_button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="button_container/levels_button" to="." method="_on_levels_button_pressed"]
+[connection signal="pressed" from="button_container/settings_button" to="." method="_on_settings_button_pressed"]
+[connection signal="pressed" from="button_container/credits_button" to="." method="_on_credits_button_pressed"]
+[connection signal="pressed" from="button_container/quit_button" to="." method="_on_quit_button_pressed"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://main.cs" type="Script" id=1]
+[ext_resource path="res://audio.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/home_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/levels_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/settings_menu.tscn" type="PackedScene" id=6]
+[ext_resource path="res://ui/credits_menu.tscn" type="PackedScene" id=7]
+
+[node name="main" type="Node"]
+script = ExtResource( 1 )
+
+[node name="audio" parent="." instance=ExtResource( 2 )]
+
+[node name="game" type="Node" parent="."]
+
+[node name="ui" type="Node" parent="."]
+
+[node name="home_menu" parent="ui" instance=ExtResource( 3 )]
+
+[node name="levels_menu" parent="ui" instance=ExtResource( 4 )]
+visible = false
+
+[node name="settings_menu" parent="ui" instance=ExtResource( 6 )]
+visible = false
+
+[node name="credits_menu" parent="ui" instance=ExtResource( 7 )]
+visible = false
+
+[node name="pause_menu" parent="ui" instance=ExtResource( 5 )]
+visible = false

@@ -1,0 +1,64 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://player.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 738, 237.5 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 308.5, 655 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 742.75, 264 )
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 255.5, 549 )
+
+[node name="level_01" type="Node"]
+
+[node name="left_wall" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="collision" type="CollisionShape2D" parent="left_wall"]
+position = Vector2( 561, -193 )
+shape = SubResource( 1 )
+
+[node name="right_wall" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="collision" type="CollisionShape2D" parent="right_wall"]
+position = Vector2( 1283.5, 306 )
+shape = SubResource( 2 )
+
+[node name="floor" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="collision" type="CollisionShape2D" parent="floor"]
+position = Vector2( 487, 802 )
+shape = SubResource( 3 )
+
+[node name="ceiling" type="StaticBody2D" parent="."]
+visible = false
+
+[node name="collision" type="CollisionShape2D" parent="ceiling"]
+position = Vector2( -206, 322 )
+shape = SubResource( 4 )
+
+[node name="terrain_01" type="StaticBody2D" parent="."]
+
+[node name="collision" type="CollisionPolygon2D" parent="terrain_01"]
+polygon = PoolVector2Array( 83, 314, 224, 510, 587, 521, 644, 353, 807, 400, 724, 577, 56, 566 )
+
+[node name="polygon" type="Polygon2D" parent="terrain_01"]
+modulate = Color( 0.203922, 0.0392157, 0.564706, 1 )
+polygon = PoolVector2Array( 83, 314, 224, 510, 587, 521, 644, 353, 807, 400, 724, 577, 56, 566 )
+
+[node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 144, 94 )
+
+[node name="level_label" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -75.0
+margin_bottom = 25.0
+text = "Level 1"

@@ -1,6 +1,7 @@
-![Spacegolf Logo Subtitled](Assets/Sprites/Text/spacegolf_logo_subtitled.png)
+![Spacegolf Logo Subtitled](../assets/spacegolf_logo_subtitled.png)
 
 <!-- # Spacegolf -->
+<!-- *Fast-paced 2D metroidvania golf platformer.* -->
 
 ## Description
 
