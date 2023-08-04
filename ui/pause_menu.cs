@@ -49,6 +49,10 @@ public class pause_menu : CanvasLayer
     public void _on_home_button_pressed()
     {
         GD.Print("Home button pressed.");
+
+        // TODO: remove game nodes when going back to menu, from any screen (credits, pause, settings, etc.)
+        // GetNodeOrNull<Node2D>("../../game/level_1").QueueFree();
+        Visible = false;
         main.GetInstance().current_game_state = main.GAME_STATE.HOME;
         main.GetInstance().UpdateMenus();
     }

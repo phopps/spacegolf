@@ -1,6 +1,6 @@
 [gd_scene format=2]
 
-[node name="level_03" type="Node"]
+[node name="level_3" type="Node"]
 
 [node name="level_label" type="Label" parent="."]
 anchor_left = 1.0

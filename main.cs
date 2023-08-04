@@ -2,16 +2,16 @@ using Godot;
 
 public class main : Node
 {
-    private static main main_instance; // Singleton pattern
-    private audio audio;
-    private Node game;
-    private CanvasLayer home;
-    private CanvasLayer levels;
-    private CanvasLayer pause;
-    private CanvasLayer settings;
-    private CanvasLayer credits;
-    private int highest_level;
-    private string level_name;
+    public static main main_instance; // Singleton pattern
+    public audio audio;
+    public Node game;
+    public CanvasLayer home;
+    public CanvasLayer levels;
+    public CanvasLayer pause;
+    public CanvasLayer settings;
+    public CanvasLayer credits;
+    public int highest_level;
+    public string level_name;
     public enum GAME_STATE
     {
         LOAD,

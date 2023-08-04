@@ -2,39 +2,31 @@
 
 [ext_resource path="res://default.tres" type="Theme" id=1]
 [ext_resource path="res://assets/spacegolf_levels_title.png" type="Texture" id=2]
-[ext_resource path="res://assets/planet_rose.png" type="Texture" id=3]
+[ext_resource path="res://assets/planets_sprite.tscn" type="PackedScene" id=3]
 [ext_resource path="res://ui/levels_menu.cs" type="Script" id=4]
 
 [node name="levels_menu" type="CanvasLayer"]
 script = ExtResource( 4 )
 
-[node name="image_container" type="AspectRatioContainer" parent="."]
+[node name="image_container" type="CenterContainer" parent="."]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -512.0
-margin_top = -300.0
-margin_right = 512.0
-margin_bottom = 300.0
+margin_left = -960.0
+margin_top = -540.0
+margin_right = 960.0
+margin_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
-__meta__ = {
-"_edit_lock_": true,
-"_edit_use_anchors_": true
-}
-
-[node name="planet_sprite" type="Sprite" parent="image_container"]
-position = Vector2( 512, 300 )
-scale = Vector2( 0.7, 0.7 )
-texture = ExtResource( 3 )
 __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="planets_sprite" parent="image_container" instance=ExtResource( 3 )]
+
 [node name="title_sprite" type="Sprite" parent="image_container"]
-position = Vector2( 512, 95 )
-scale = Vector2( 1.13774, 1.0825 )
+position = Vector2( 959.007, 341 )
 texture = ExtResource( 2 )
 __meta__ = {
 "_edit_lock_": true
@@ -97,6 +89,9 @@ focus_neighbour_bottom = NodePath("../level_02_button")
 focus_next = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 text = "Level 1"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_02_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_left = 131.0
@@ -111,6 +106,9 @@ focus_previous = NodePath("../level_01_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 2"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_03_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_left = 263.0
@@ -125,6 +123,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 3"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_04_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_top = 82.0
@@ -139,6 +140,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 4"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_05_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_left = 131.0
@@ -154,6 +158,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 5"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_06_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_left = 263.0
@@ -169,6 +176,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 6"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_07_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_top = 164.0
@@ -183,6 +193,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 7"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_08_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_left = 131.0
@@ -198,6 +211,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 8"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="level_09_button" type="Button" parent="button_container/button_vbox/button_grid"]
 margin_left = 263.0
@@ -213,6 +229,9 @@ focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
 disabled = true
 text = "Level 9"
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="quit_button" type="Button" parent="button_container/button_vbox"]
 margin_top = 308.0
@@ -224,6 +243,16 @@ focus_neighbour_top = NodePath("../button_grid/level_03_button")
 focus_previous = NodePath("../button_grid/level_03_button")
 theme = ExtResource( 1 )
 text = "Quit"
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="screen_name" type="Label" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -134.0
+margin_bottom = 25.0
+text = "levels_menu"
 __meta__ = {
 "_edit_lock_": true
 }

@@ -14,7 +14,7 @@ extents = Vector2( 742.75, 264 )
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 255.5, 549 )
 
-[node name="level_01" type="Node"]
+[node name="level_1" type="Node"]
 
 [node name="left_wall" type="StaticBody2D" parent="."]
 visible = false

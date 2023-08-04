@@ -13,7 +13,8 @@ public class levels_menu : CanvasLayer
     public void _on_home_button_pressed()
     {
         GD.Print("Home button pressed.");
-        // Load home menu
+        main.GetInstance().current_game_state = main.GAME_STATE.HOME;
+        main.GetInstance().UpdateMenus();
     }
 
     public void _on_quit_button_pressed()
