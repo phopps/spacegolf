@@ -38,6 +38,15 @@ margin_right = 150.0
 margin_bottom = 172.0
 text = "Quit"
 
+[node name="menu_label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -31.5
+margin_right = 31.5
+margin_bottom = 25.0
+text = "Finish"
+align = 1
+
 [connection signal="pressed" from="button_container/next_button" to="." method="_on_next_button_pressed"]
 [connection signal="pressed" from="button_container/replay_button" to="." method="_on_replay_button_pressed"]
 [connection signal="pressed" from="button_container/home_button" to="." method="_on_home_button_pressed"]

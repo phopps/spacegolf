@@ -6,7 +6,7 @@
 script = ExtResource( 1 )
 
 [node name="button_container" type="HBoxContainer" parent="."]
-margin_right = 89.0
+margin_right = 177.0
 margin_bottom = 37.0
 __meta__ = {
 "_edit_lock_": true
@@ -75,6 +75,17 @@ margin_left = 97.0
 margin_right = 177.0
 margin_bottom = 37.0
 text = "Mute"
+
+[node name="menu_label" type="Label" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -37.0
+margin_top = 100.0
+margin_right = 42.0
+margin_bottom = 125.0
+text = "Pause"
+align = 1
 
 [connection signal="pressed" from="button_container/pause_button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="button_container/resume_button" to="." method="_on_resume_button_pressed"]

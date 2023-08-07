@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://main.cs" type="Script" id=1]
 [ext_resource path="res://audio.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://ui/settings_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/credits_menu.tscn" type="PackedScene" id=7]
 [ext_resource path="res://finish_menu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://hud_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/background_rock.png" type="Texture" id=10]
 
 [node name="main" type="Node"]
@@ -58,4 +59,7 @@ visible = false
 visible = false
 
 [node name="finish_menu" parent="ui" instance=ExtResource( 8 )]
+visible = false
+
+[node name="hud_menu" parent="ui" instance=ExtResource( 9 )]
 visible = false

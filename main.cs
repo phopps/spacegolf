@@ -17,13 +17,16 @@ public class main : Node
     public enum GAME_STATE
     {
         LOAD,
+        INTRO,
         HOME,
         LEVELS,
         PLAY,
         PAUSE,
+        FINISH,
         SETTINGS,
         CREDITS,
-        QUIT
+        QUIT,
+        OUTRO
     }
     public GAME_STATE current_game_state;
 
