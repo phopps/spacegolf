@@ -1,0 +1,23 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/audio_sfx_scroll.wav-1dd9327a94556b2ad849cc79f95f99af.sample"
+
+[deps]
+
+source_file="res://assets/audio_sfx_scroll.wav"
+dest_files=[ "res://.import/audio_sfx_scroll.wav-1dd9327a94556b2ad849cc79f95f99af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=0
