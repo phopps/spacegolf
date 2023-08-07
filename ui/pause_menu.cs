@@ -75,4 +75,11 @@ public class pause_menu : CanvasLayer
         GD.Print("Debug button pressed.");
         // Toggle debug menu visibility
     }
+
+    public void _on_mute_button_pressed()
+    {
+        GD.Print("Mute button pressed.");
+        // Toggle audio volume muting
+        main.GetInstance().audio.MuteAudio();
+    }
 }

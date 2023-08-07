@@ -232,4 +232,10 @@ public class main : Node
         GD.Print("Closing game.");
         GetTree().Quit();
     }
+
+    public void RemovePreviousLevel()
+    {
+        GD.Print("Removing previous level.");
+        // if (GetTree().Root.GetNode<Node>(""))
+    }
 }

@@ -70,9 +70,16 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="mute_button" type="Button" parent="button_container"]
+margin_left = 97.0
+margin_right = 177.0
+margin_bottom = 37.0
+text = "Mute"
+
 [connection signal="pressed" from="button_container/pause_button" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="button_container/resume_button" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="button_container/fullscreen_button" to="." method="_on_fullscreen_button_pressed"]
 [connection signal="pressed" from="button_container/home_button" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="button_container/quit_button" to="." method="_on_quit_button_pressed"]
 [connection signal="pressed" from="button_container/debug_button" to="." method="_on_debug_button_pressed"]
+[connection signal="pressed" from="button_container/mute_button" to="." method="_on_mute_button_pressed"]
