@@ -80,6 +80,13 @@ Quit={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="terrain"
+2d_physics/layer_3="gate"
+2d_physics/layer_4="portal"
+
 [mono]
 
 project/assembly_name="spacegolf"

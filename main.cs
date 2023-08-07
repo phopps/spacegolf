@@ -10,6 +10,7 @@ public class main : Node
     public CanvasLayer pause;
     public CanvasLayer settings;
     public CanvasLayer credits;
+    public CanvasLayer finish;
     public int highest_level;
     public int current_level;
     public int game_count;
@@ -56,6 +57,7 @@ public class main : Node
         pause = GetNode<CanvasLayer>("ui/pause_menu");
         settings = GetNode<CanvasLayer>("ui/settings_menu");
         credits = GetNode<CanvasLayer>("ui/credits_menu");
+        finish = GetNode<CanvasLayer>("ui/finish_menu");
         current_level = 1;
         highest_level = 1; // Set default highest level unlocked
         level_name = "";
@@ -151,6 +153,13 @@ public class main : Node
         UpdateMenus();
     }
 
+    public void LoadFinishMenu()
+    {
+        GD.Print("Loading finish menu.");
+        current_game_state = GAME_STATE.FINISH;
+        UpdateMenus();
+    }
+
     public void UpdateMenus()
     {
         GD.Print($"Updating menus to {current_game_state}.");
@@ -164,6 +173,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
@@ -174,6 +184,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     pause.GetNode<Button>("button_container/pause_button").Pressed = false;
                     break;
@@ -185,6 +196,7 @@ public class main : Node
                     levels.Visible = true;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
@@ -194,6 +206,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = true;
                     GetTree().Paused = false;
                     pause.GetNodeOrNull<Button>("button_container/pause_button").Pressed = false;
@@ -208,6 +221,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = true;
                     credits.Visible = false;
+                    finish.Visible = false;
                     break;
                 }
             case GAME_STATE.CREDITS:
@@ -217,6 +231,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = true;
+                    finish.Visible = false;
                     pause.Visible = true;
                     break;
                 }
@@ -227,7 +242,19 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = true;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = true;
+                    break;
+                }
+            case GAME_STATE.FINISH:
+                {
+                    GetTree().Paused = true;
+                    home.Visible = false;
+                    levels.Visible = false;
+                    settings.Visible = false;
+                    credits.Visible = false;
+                    finish.Visible = true;
+                    pause.Visible = false;
                     break;
                 }
             case GAME_STATE.QUIT:
@@ -237,6 +264,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
@@ -247,6 +275,7 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }

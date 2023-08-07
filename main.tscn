@@ -7,7 +7,7 @@
 [ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://ui/settings_menu.tscn" type="PackedScene" id=6]
 [ext_resource path="res://ui/credits_menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://finish_menu.tscn" type="PackedScene" id=8]
+[ext_resource path="res://ui/finish_menu.tscn" type="PackedScene" id=8]
 [ext_resource path="res://hud_menu.tscn" type="PackedScene" id=9]
 [ext_resource path="res://assets/background_rock.png" type="Texture" id=10]
 
