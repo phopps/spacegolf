@@ -11,6 +11,8 @@ public class main : Node
     public CanvasLayer settings;
     public CanvasLayer credits;
     public int highest_level;
+    public int current_level;
+    public int game_count;
     public string level_name;
     public enum GAME_STATE
     {
@@ -51,6 +53,7 @@ public class main : Node
         pause = GetNode<CanvasLayer>("ui/pause_menu");
         settings = GetNode<CanvasLayer>("ui/settings_menu");
         credits = GetNode<CanvasLayer>("ui/credits_menu");
+        current_level = 1;
         highest_level = 1; // Set default highest level unlocked
         level_name = "";
         audio.PlayBGM();
@@ -89,6 +92,23 @@ public class main : Node
         game.AddChild(ResourceLoader.Load<PackedScene>(level_name).Instance());
         current_game_state = GAME_STATE.PLAY;
         UpdateMenus();
+    }
+
+    public void ReplayLevel()
+    {
+        GD.Print("Replaying current level.");
+        LoadLevel(current_level);
+    }
+
+    public void LoadNextLevel()
+    {
+        GD.Print("Loading next level.");
+        current_level += 1;
+        if (current_level > highest_level)
+        {
+            highest_level = current_level;
+        }
+        LoadLevel(current_level);
     }
 
     public void LoadLevelsMenu()
@@ -136,6 +156,7 @@ public class main : Node
         {
             case GAME_STATE.LOAD:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
@@ -145,15 +166,18 @@ public class main : Node
                 }
             case GAME_STATE.HOME:
                 {
+                    GetTree().Paused = true;
                     home.Visible = true;
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
                     pause.Visible = false;
+                    pause.GetNode<Button>("button_container/pause_button").Pressed = false;
                     break;
                 }
             case GAME_STATE.LEVELS:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = true;
                     settings.Visible = false;
@@ -168,19 +192,24 @@ public class main : Node
                     settings.Visible = false;
                     credits.Visible = false;
                     pause.Visible = true;
+                    GetTree().Paused = false;
+                    pause.GetNodeOrNull<Button>("button_container/pause_button").Pressed = false;
                     break;
                 }
             case GAME_STATE.PAUSE:
                 {
+                    GetTree().Paused = true;
+                    pause.Visible = true;
+                    // pause.GetNodeOrNull<Button>("ui/pause_menu/pause_button").Pressed = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = true;
                     credits.Visible = false;
-                    pause.Visible = true;
                     break;
                 }
             case GAME_STATE.CREDITS:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
@@ -190,6 +219,7 @@ public class main : Node
                 }
             case GAME_STATE.SETTINGS:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = true;
@@ -199,6 +229,7 @@ public class main : Node
                 }
             case GAME_STATE.QUIT:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
@@ -208,6 +239,7 @@ public class main : Node
                 }
             default:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
@@ -223,8 +255,15 @@ public class main : Node
         GD.Print("Quitting game.");
         current_game_state = GAME_STATE.QUIT;
         // UpdateMenus();
-        audio.PlayQuitSFX();
-        audio.GetNode<AudioStreamPlayer>("quit_sfx").Connect("finished", this, "CloseGame");
+        if (audio.isMuted)
+        {
+            CloseGame();
+        }
+        else
+        {
+            audio.PlayQuitSFX();
+            audio.GetNode<AudioStreamPlayer>("quit_sfx").Connect("finished", this, "CloseGame");
+        }
     }
 
     public void CloseGame()
@@ -236,6 +275,13 @@ public class main : Node
     public void RemovePreviousLevel()
     {
         GD.Print("Removing previous level.");
-        // if (GetTree().Root.GetNode<Node>(""))
+        game_count = game.GetChildCount();
+        if (game_count > 0)
+        {
+            foreach (Node child in game.GetChildren())
+            {
+                child.QueueFree();
+            }
+        }
     }
 }
