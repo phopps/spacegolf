@@ -30,6 +30,12 @@ mono_crash.*.json
 
 # Exported project files (HTML5, desktop, mobile)
 _Export/
+_export/
 
 # Debug folder
 #_Debug/
+#_debug/
+
+# Ignore folder
+_Ignore/
+_ignore/
