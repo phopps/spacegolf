@@ -21,6 +21,10 @@ boot_splash/image="res://assets/background_rock.png"
 boot_splash/bg_color=Color( 0.176471, 0.176471, 0.176471, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+main="*res://main.tscn"
+
 [display]
 
 window/size/width=1920
@@ -79,6 +83,13 @@ Quit={
 , Object(InputEventJoypadButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"button_index":1,"pressure":0.0,"pressed":false,"script":null)
  ]
 }
+
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="terrain"
+2d_physics/layer_3="gate"
+2d_physics/layer_4="portal"
 
 [mono]
 

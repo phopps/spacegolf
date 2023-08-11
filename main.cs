@@ -5,23 +5,33 @@ public class main : Node
     public static main main_instance; // Singleton pattern
     public audio audio;
     public Node game;
+    public Node level_scene;
+    // public Node level_base;
     public CanvasLayer home;
     public CanvasLayer levels;
     public CanvasLayer pause;
     public CanvasLayer settings;
     public CanvasLayer credits;
+    public CanvasLayer finish;
+    public CanvasLayer hud;
     public int highest_level;
+    public int current_level;
+    public int game_count;
     public string level_name;
+    public string level_path;
     public enum GAME_STATE
     {
         LOAD,
+        INTRO,
         HOME,
         LEVELS,
         PLAY,
         PAUSE,
+        FINISH,
         SETTINGS,
         CREDITS,
-        QUIT
+        QUIT,
+        OUTRO
     }
     public GAME_STATE current_game_state;
 
@@ -51,6 +61,9 @@ public class main : Node
         pause = GetNode<CanvasLayer>("ui/pause_menu");
         settings = GetNode<CanvasLayer>("ui/settings_menu");
         credits = GetNode<CanvasLayer>("ui/credits_menu");
+        finish = GetNode<CanvasLayer>("ui/finish_menu");
+        // hud = GetNode<CanvasLayer>("ui/hud_menu");
+        current_level = 1;
         highest_level = 1; // Set default highest level unlocked
         level_name = "";
         audio.PlayBGM();
@@ -83,12 +96,38 @@ public class main : Node
     public void LoadLevel(int level_number)
     {
         // Level contains map terrain, gates, portal, player
-        GD.Print("Loading level ", level_number, ".");
-        level_name = $"res://levels/level_{level_number}.tscn";
-        GD.Print("Level name: ", level_name);
-        game.AddChild(ResourceLoader.Load<PackedScene>(level_name).Instance());
-        current_game_state = GAME_STATE.PLAY;
+        GD.Print("\nLoading level ", level_number, ".");
+        level_path = $"res://levels/level_{level_number}.tscn";
+        level_name = $"level_{level_number}";
+        if (ResourceLoader.Exists(level_path))
+        {
+            level_scene = ResourceLoader.Load<PackedScene>(level_path).Instance();
+            game.AddChild(level_scene);
+            current_game_state = GAME_STATE.PLAY;
+        }
+        else
+        {
+            GD.Print("Error: missing level scene.");
+            current_game_state = GAME_STATE.LEVELS;
+        }
         UpdateMenus();
+    }
+
+    public void ReplayLevel()
+    {
+        GD.Print("Replaying current level.");
+        LoadLevel(current_level);
+    }
+
+    public void LoadNextLevel()
+    {
+        GD.Print("Loading next level.");
+        current_level += 1;
+        if (current_level > highest_level)
+        {
+            highest_level = current_level;
+        }
+        LoadLevel(current_level);
     }
 
     public void LoadLevelsMenu()
@@ -128,36 +167,50 @@ public class main : Node
         UpdateMenus();
     }
 
+    public void LoadFinishMenu()
+    {
+        GD.Print("Loading finish menu.");
+        current_game_state = GAME_STATE.FINISH;
+        UpdateMenus();
+    }
+
     public void UpdateMenus()
     {
-        GD.Print($"Updating menus to {current_game_state}.");
+        GD.Print($"Updating menus to current game state {current_game_state}.");
         // Set menu visibilities based on current game state
         switch (current_game_state)
         {
             case GAME_STATE.LOAD:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
             case GAME_STATE.HOME:
                 {
+                    GetTree().Paused = true;
                     home.Visible = true;
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
+                    pause.GetNode<Button>("button_container/pause_button").Pressed = false;
                     break;
                 }
             case GAME_STATE.LEVELS:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = true;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
@@ -167,51 +220,76 @@ public class main : Node
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = true;
+                    GetTree().Paused = false;
+                    pause.GetNodeOrNull<Button>("button_container/pause_button").Pressed = false;
                     break;
                 }
             case GAME_STATE.PAUSE:
                 {
+                    GetTree().Paused = true;
+                    pause.Visible = true;
+                    // pause.GetNodeOrNull<Button>("ui/pause_menu/pause_button").Pressed = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = true;
                     credits.Visible = false;
-                    pause.Visible = true;
+                    finish.Visible = false;
                     break;
                 }
             case GAME_STATE.CREDITS:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = true;
+                    finish.Visible = false;
                     pause.Visible = true;
                     break;
                 }
             case GAME_STATE.SETTINGS:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = true;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = true;
                     break;
                 }
-            case GAME_STATE.QUIT:
+            case GAME_STATE.FINISH:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = true;
+                    pause.Visible = false;
+                    break;
+                }
+            case GAME_STATE.QUIT:
+                {
+                    GetTree().Paused = true;
+                    home.Visible = false;
+                    levels.Visible = false;
+                    settings.Visible = false;
+                    credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
             default:
                 {
+                    GetTree().Paused = true;
                     home.Visible = false;
                     levels.Visible = false;
                     settings.Visible = false;
                     credits.Visible = false;
+                    finish.Visible = false;
                     pause.Visible = false;
                     break;
                 }
@@ -223,8 +301,16 @@ public class main : Node
         GD.Print("Quitting game.");
         current_game_state = GAME_STATE.QUIT;
         // UpdateMenus();
+        // if (audio.isMuted)
+        // {
+        //     CloseGame();
+        // }
+        // else
+        // {
         audio.PlayQuitSFX();
-        audio.GetNode<AudioStreamPlayer>("quit_sfx").Connect("finished", this, "CloseGame");
+        CloseGame();
+        // audio.GetNode<AudioStreamPlayer>("quit_sfx").Connect("finished", this, "CloseGame");
+        // }
     }
 
     public void CloseGame()
@@ -236,6 +322,13 @@ public class main : Node
     public void RemovePreviousLevel()
     {
         GD.Print("Removing previous level.");
-        // if (GetTree().Root.GetNode<Node>(""))
+        game_count = game.GetChildCount();
+        if (game_count > 0)
+        {
+            foreach (Node child in game.GetChildren())
+            {
+                child.QueueFree();
+            }
+        }
     }
 }

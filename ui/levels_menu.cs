@@ -27,9 +27,28 @@ public class levels_menu : CanvasLayer
     public void _on_level_01_button_pressed()
     {
         GD.Print("Level 1 button pressed.");
-        // Load level 1
         main.GetInstance().LoadLevel(1);
-        // Show pause menu
+        main.GetInstance().current_level = 1;
         pause_menu.Visible = true;
     }
+
+    public void _on_level_02_button_pressed()
+    {
+        GD.Print("Level 2 button pressed.");
+        main.GetInstance().LoadLevel(2);
+        main.GetInstance().current_level = 2;
+        pause_menu.Visible = true;
+    }
+
+    public void _on_level_03_button_pressed()
+    {
+        GD.Print("Level 3 button pressed.");
+        main.GetInstance().LoadLevel(3);
+        main.GetInstance().current_level = 3;
+        pause_menu.Visible = true;
+    }
+
+
+
+
 }
