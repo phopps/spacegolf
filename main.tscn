@@ -1,14 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://main.cs" type="Script" id=1]
 [ext_resource path="res://audio.tscn" type="PackedScene" id=2]
-[ext_resource path="res://ui/home_menu.tscn" type="PackedScene" id=3]
-[ext_resource path="res://ui/levels_menu.tscn" type="PackedScene" id=4]
-[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=5]
-[ext_resource path="res://ui/settings_menu.tscn" type="PackedScene" id=6]
-[ext_resource path="res://ui/credits_menu.tscn" type="PackedScene" id=7]
-[ext_resource path="res://ui/finish_menu.tscn" type="PackedScene" id=8]
-[ext_resource path="res://hud_menu.tscn" type="PackedScene" id=9]
+[ext_resource path="res://ui/ui.tscn" type="PackedScene" id=3]
 [ext_resource path="res://assets/background_rock.png" type="Texture" id=10]
 
 [node name="main" type="Node"]
@@ -35,31 +29,9 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="audio" parent="." instance=ExtResource( 2 )]
-pause_mode = 2
-
 [node name="game" type="Node" parent="."]
 pause_mode = 1
 
-[node name="ui" type="Node" parent="."]
-pause_mode = 2
+[node name="audio" parent="." instance=ExtResource( 2 )]
 
-[node name="home_menu" parent="ui" instance=ExtResource( 3 )]
-
-[node name="levels_menu" parent="ui" instance=ExtResource( 4 )]
-visible = false
-
-[node name="settings_menu" parent="ui" instance=ExtResource( 6 )]
-visible = false
-
-[node name="credits_menu" parent="ui" instance=ExtResource( 7 )]
-visible = false
-
-[node name="pause_menu" parent="ui" instance=ExtResource( 5 )]
-visible = false
-
-[node name="finish_menu" parent="ui" instance=ExtResource( 8 )]
-visible = false
-
-[node name="hud_menu" parent="ui" instance=ExtResource( 9 )]
-visible = false
+[node name="ui" parent="." instance=ExtResource( 3 )]

@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=2]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 319.5, 1176 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 320, 1176 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 1600, 320.5 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 1600, 320 )
+
+[node name="level_base" type="Node"]
+
+[node name="left_wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="left_wall"]
+position = Vector2( -320.5, 544 )
+shape = SubResource( 4 )
+
+[node name="right_wall" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="right_wall"]
+position = Vector2( 2240, 544 )
+shape = SubResource( 2 )
+
+[node name="floor" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="floor"]
+position = Vector2( 960, 1399.5 )
+shape = SubResource( 3 )
+
+[node name="ceiling" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="ceiling"]
+position = Vector2( 960, -320 )
+shape = SubResource( 1 )

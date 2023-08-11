@@ -1,0 +1,28 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://ui/credits_menu.tscn" type="PackedScene" id=1]
+[ext_resource path="res://ui/pause_menu.tscn" type="PackedScene" id=2]
+[ext_resource path="res://ui/finish_menu.tscn" type="PackedScene" id=3]
+[ext_resource path="res://ui/settings_menu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://ui/home_menu.tscn" type="PackedScene" id=5]
+[ext_resource path="res://ui/levels_menu.tscn" type="PackedScene" id=6]
+
+[node name="ui" type="Node"]
+pause_mode = 2
+
+[node name="home_menu" parent="." instance=ExtResource( 5 )]
+
+[node name="levels_menu" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="settings_menu" parent="." instance=ExtResource( 4 )]
+visible = false
+
+[node name="credits_menu" parent="." instance=ExtResource( 1 )]
+visible = false
+
+[node name="pause_menu" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="finish_menu" parent="." instance=ExtResource( 3 )]
+visible = false

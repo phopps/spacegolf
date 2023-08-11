@@ -21,6 +21,10 @@ boot_splash/image="res://assets/background_rock.png"
 boot_splash/bg_color=Color( 0.176471, 0.176471, 0.176471, 1 )
 config/icon="res://icon.png"
 
+[autoload]
+
+main="*res://main.tscn"
+
 [display]
 
 window/size/width=1920

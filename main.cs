@@ -5,16 +5,20 @@ public class main : Node
     public static main main_instance; // Singleton pattern
     public audio audio;
     public Node game;
+    public Node level_scene;
+    // public Node level_base;
     public CanvasLayer home;
     public CanvasLayer levels;
     public CanvasLayer pause;
     public CanvasLayer settings;
     public CanvasLayer credits;
     public CanvasLayer finish;
+    public CanvasLayer hud;
     public int highest_level;
     public int current_level;
     public int game_count;
     public string level_name;
+    public string level_path;
     public enum GAME_STATE
     {
         LOAD,
@@ -58,6 +62,7 @@ public class main : Node
         settings = GetNode<CanvasLayer>("ui/settings_menu");
         credits = GetNode<CanvasLayer>("ui/credits_menu");
         finish = GetNode<CanvasLayer>("ui/finish_menu");
+        // hud = GetNode<CanvasLayer>("ui/hud_menu");
         current_level = 1;
         highest_level = 1; // Set default highest level unlocked
         level_name = "";
@@ -91,11 +96,20 @@ public class main : Node
     public void LoadLevel(int level_number)
     {
         // Level contains map terrain, gates, portal, player
-        GD.Print("Loading level ", level_number, ".");
-        level_name = $"res://levels/level_{level_number}.tscn";
-        GD.Print("Level name: ", level_name);
-        game.AddChild(ResourceLoader.Load<PackedScene>(level_name).Instance());
-        current_game_state = GAME_STATE.PLAY;
+        GD.Print("\nLoading level ", level_number, ".");
+        level_path = $"res://levels/level_{level_number}.tscn";
+        level_name = $"level_{level_number}";
+        if (ResourceLoader.Exists(level_path))
+        {
+            level_scene = ResourceLoader.Load<PackedScene>(level_path).Instance();
+            game.AddChild(level_scene);
+            current_game_state = GAME_STATE.PLAY;
+        }
+        else
+        {
+            GD.Print("Error: missing level scene.");
+            current_game_state = GAME_STATE.LEVELS;
+        }
         UpdateMenus();
     }
 
@@ -162,7 +176,7 @@ public class main : Node
 
     public void UpdateMenus()
     {
-        GD.Print($"Updating menus to {current_game_state}.");
+        GD.Print($"Updating menus to current game state {current_game_state}.");
         // Set menu visibilities based on current game state
         switch (current_game_state)
         {
@@ -287,15 +301,16 @@ public class main : Node
         GD.Print("Quitting game.");
         current_game_state = GAME_STATE.QUIT;
         // UpdateMenus();
-        if (audio.isMuted)
-        {
-            CloseGame();
-        }
-        else
-        {
-            audio.PlayQuitSFX();
-            audio.GetNode<AudioStreamPlayer>("quit_sfx").Connect("finished", this, "CloseGame");
-        }
+        // if (audio.isMuted)
+        // {
+        //     CloseGame();
+        // }
+        // else
+        // {
+        audio.PlayQuitSFX();
+        CloseGame();
+        // audio.GetNode<AudioStreamPlayer>("quit_sfx").Connect("finished", this, "CloseGame");
+        // }
     }
 
     public void CloseGame()

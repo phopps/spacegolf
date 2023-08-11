@@ -104,7 +104,6 @@ focus_neighbour_bottom = NodePath("../level_03_button")
 focus_next = NodePath("../level_03_button")
 focus_previous = NodePath("../level_01_button")
 theme = ExtResource( 1 )
-disabled = true
 text = "Level 2"
 __meta__ = {
 "_edit_lock_": true
@@ -121,7 +120,6 @@ focus_neighbour_bottom = NodePath("../../quit_button")
 focus_next = NodePath("../../quit_button")
 focus_previous = NodePath("../level_02_button")
 theme = ExtResource( 1 )
-disabled = true
 text = "Level 3"
 __meta__ = {
 "_edit_lock_": true
@@ -261,4 +259,6 @@ __meta__ = {
 
 [connection signal="pressed" from="button_container/button_vbox/home_button" to="." method="_on_home_button_pressed"]
 [connection signal="pressed" from="button_container/button_vbox/button_grid/level_01_button" to="." method="_on_level_01_button_pressed"]
+[connection signal="pressed" from="button_container/button_vbox/button_grid/level_02_button" to="." method="_on_level_02_button_pressed"]
+[connection signal="pressed" from="button_container/button_vbox/button_grid/level_03_button" to="." method="_on_level_03_button_pressed"]
 [connection signal="pressed" from="button_container/button_vbox/quit_button" to="." method="_on_quit_button_pressed"]
