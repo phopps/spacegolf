@@ -32,6 +32,7 @@ __meta__ = {
 [node name="polygon" type="Polygon2D" parent="terrain"]
 position = Vector2( -230.644, -166.531 )
 scale = Vector2( 1.18718, 1.29685 )
+color = Color( 0.65098, 0.960784, 0.564706, 1 )
 polygon = PoolVector2Array( 137, 179, 143, 884, 769, 1024, 1015.55, 1015.95, 1820, 1025, 1900, 344, 1661, 31, 1219, 22, 1460, 127, 1793, 320, 1754, 619, 1612, 928, 1145, 917, 779, 896, 772, 655, 1083, 474, 1366, 597, 1513, 613, 1495, 458, 1291, 386, 963, 350, 690, 473, 595, 642, 520, 826, 318, 862, 205, 681, 217, 494, 206, 260, 212, 106, 142, 91 )
 __meta__ = {
 "_edit_lock_": true
@@ -39,9 +40,7 @@ __meta__ = {
 
 [node name="player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 63, 54 )
-collision_mask = 14
 
 [node name="portal" parent="." instance=ExtResource( 1 )]
 position = Vector2( 191, 916 )
 rotation = 1.21858
-collision_layer = 8

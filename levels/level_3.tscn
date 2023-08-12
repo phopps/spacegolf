@@ -16,11 +16,18 @@ text = "Level 3"
 [node name="level_base" parent="." instance=ExtResource( 1 )]
 
 [node name="terrain" type="StaticBody2D" parent="."]
+collision_layer = 2
 
 [node name="collision" type="CollisionPolygon2D" parent="terrain"]
+polygon = PoolVector2Array( 549, 257, 733, 90, 1088, 24, 1505, 257, 1393, 604, 699, 673, 293, 421, 124, 164, -58, 114, 58, 324, 252, 550, 759, 832, 1558, 652, 1756, 211, 1085, -140, 599, -49, 462, 111 )
 
 [node name="polygon" type="Polygon2D" parent="terrain"]
+color = Color( 0.298039, 0.207843, 0.203922, 1 )
+polygon = PoolVector2Array( 549, 257, 733, 90, 1088, 24, 1505, 257, 1393, 604, 699, 673, 293, 421, 124, 164, -58, 114, 58, 324, 252, 550, 759, 832, 1558, 652, 1756, 211, 1085, -140, 599, -49, 462, 111 )
 
 [node name="player" parent="." instance=ExtResource( 2 )]
+position = Vector2( 53, 52 )
 
 [node name="portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 319, 386 )
+rotation = 0.686199

@@ -31,5 +31,4 @@ polygon = PoolVector2Array( 83, 314, 224, 510, 587, 521, 644, 353, 807, 400, 724
 position = Vector2( 144, 94 )
 
 [node name="portal" parent="." instance=ExtResource( 1 )]
-position = Vector2( 497, 456 )
-collision_layer = 8
+position = Vector2( 322, 467 )

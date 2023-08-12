@@ -27,11 +27,8 @@ __meta__ = {
 
 [node name="title_sprite" type="Sprite" parent="background_container"]
 position = Vector2( 959, 386 )
-scale = Vector2( 1.13774, 1.0825 )
+scale = Vector2( 1.67619, 1.67 )
 texture = ExtResource( 4 )
-__meta__ = {
-"_edit_lock_": true
-}
 
 [node name="button_container" type="VBoxContainer" parent="."]
 anchor_left = 0.5
